@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category, CategoryList } from '../../constants/category';
 import { CommonService } from '../../services/common.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { CommonService } from '../../services/common.service';
   styleUrls: ['./sub-header.component.scss']
 })
 export class SubHeaderComponent implements OnInit {
-  public selectedCategory = 'JavaScript';
+  public selectedCategory = Category[1];
+  public categoryList = CategoryList;
   constructor(
     private readonly common: CommonService
   ) { }

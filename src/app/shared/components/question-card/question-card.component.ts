@@ -5,6 +5,13 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { AngularQuestions } from '../../constants/angular';
+import { Category } from '../../constants/category';
+import { CSSQuestions } from '../../constants/css';
+import { HTMLQuestions } from '../../constants/html';
+import { IonicQuestions } from '../../constants/ionic';
+import { JavaScriptQuestions } from '../../constants/javascript';
+import { ReactQuestions } from '../../constants/react';
 
 @Component({
   selector: 'app-question-card',
@@ -63,9 +70,35 @@ export class QuestionCardComponent implements OnInit, OnChanges {
     cardItem.isFlipped = !cardItem.isFlipped;
   }
   public filterQuestionsList(): void {
-    const cardsList = [...this.fullCardsList];
-    this.cardsToDisplay = cardsList.filter(
-      (element) => element.category === this.selectedCategory
-    );
+    switch (this.selectedCategory) {
+      case Category[Category.JavaScript]: {
+        this.cardsToDisplay = JavaScriptQuestions;
+        break;
+      }
+      case Category[Category.Angular]: {
+        this.cardsToDisplay = AngularQuestions;
+        break;
+      }
+      case Category[Category.HTML]: {
+        this.cardsToDisplay = HTMLQuestions;
+        break;
+      }
+      case Category[Category.CSS]: {
+        this.cardsToDisplay = CSSQuestions;
+        break;
+      }
+      case Category[Category.Ionic]: {
+        this.cardsToDisplay = IonicQuestions;
+        break;
+      }
+      case Category[Category.React]: {
+        this.cardsToDisplay = ReactQuestions;
+        break;
+      }
+    }
+    // const cardsList = [...this.fullCardsList];
+    // this.cardsToDisplay = cardsList.filter(
+    //   (element) => element.category === this.selectedCategory
+    // );
   }
 }

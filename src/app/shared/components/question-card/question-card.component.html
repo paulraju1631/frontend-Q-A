@@ -1,16 +1,17 @@
 <div class="card-grid">
   <div
-    *ngFor="let cardItem of cardsToDisplay"
+    *ngFor="let cardItem of cardsToDisplay; let cardIndex = index;"
     class="card"
     (click)="cardClicked(cardItem)"
     [ngClass]="{ flip: cardItem.isFlipped }"
   >
     <div class="front">
-      <div class="card-question">{{ cardItem.question }}</div>
+      <h3 class="card-question">{{cardIndex + 1}}) {{ cardItem.question }}</h3>
       <span>(Click to view answer)</span>
     </div>
     <div class="back">
-      <div class="card-answer">{{ cardItem.answer }}</div>
+      <span>(Click to view question)</span>
+      <p class="card-answer">{{ cardItem.answer }}</p>
     </div>
   </div>
 </div>

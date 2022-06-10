@@ -5,14 +5,14 @@
         <mat-label>Select a Category</mat-label>
         <mat-select
           [(ngModel)]="selectedCategory"
-          placeholder="Select a Category" (selectionChange)="categoryChanged($event)"
+          placeholder="Select a Category"
+          (selectionChange)="categoryChanged($event)"
         >
-          <mat-option value="Angular">Angular</mat-option>
-          <mat-option value="JavaScript">JavaScript</mat-option>
-          <mat-option value="HTML">HTML</mat-option>
-          <mat-option value="CSS">CSS</mat-option>
-          <mat-option value="Ionic">Ionic</mat-option>
-          <mat-option value="React">React</mat-option>
+          <mat-option
+            *ngFor="let category of categoryList"
+            [value]="category"
+            >{{ category }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
     </div>
