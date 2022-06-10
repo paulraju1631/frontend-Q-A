@@ -1,4 +1,4 @@
-<div class="card-grid">
+<!-- <div class="card-grid">
   <div
     *ngFor="let cardItem of cardsToDisplay; let cardIndex = index;"
     class="card"
@@ -14,4 +14,21 @@
       <p class="card-answer">{{ cardItem.answer }}</p>
     </div>
   </div>
+</div> -->
+<div class="question-panel">
+  <mat-accordion>
+    <mat-expansion-panel
+      *ngFor="let card of cardsToDisplay; let cardIndex = index"
+      (opened)="panelOpened()"
+      (closed)="panelClosed()"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title
+          >Q{{ cardIndex + 1}}) {{ card.question }}
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{ card.answer }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

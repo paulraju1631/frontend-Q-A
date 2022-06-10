@@ -20,45 +20,9 @@ import { ReactQuestions } from '../../constants/react';
 })
 export class QuestionCardComponent implements OnInit, OnChanges {
   @Input() selectedCategory = '';
-  public fullCardsList: any[] = [
-    {
-      question: 'This is my React Question',
-      answer: 'This is my answer',
-      isFlipped: false,
-      category: 'React',
-    },
-    {
-      question: 'This is my HTML Question',
-      answer: 'This is my answer',
-      isFlipped: false,
-      category: 'HTML',
-    },
-    {
-      question: 'This is my CSS Question',
-      answer: 'This is my answer',
-      isFlipped: false,
-      category: 'CSS',
-    },
-    {
-      question: 'This is my JavaScript Question',
-      answer: 'This is my answer',
-      isFlipped: false,
-      category: 'JavaScript',
-    },
-    {
-      question: 'This is my Ionic Question',
-      answer: 'This is my answer',
-      isFlipped: false,
-      category: 'Ionic',
-    },
-    {
-      question: 'This is my Angular Question',
-      answer: 'This is my answer',
-      isFlipped: false,
-      category: 'Angular',
-    },
-  ];
+
   public cardsToDisplay: any[] = [];
+  public panelOpenState = false;
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
     if (this.selectedCategory) {
@@ -96,9 +60,11 @@ export class QuestionCardComponent implements OnInit, OnChanges {
         break;
       }
     }
-    // const cardsList = [...this.fullCardsList];
-    // this.cardsToDisplay = cardsList.filter(
-    //   (element) => element.category === this.selectedCategory
-    // );
+  }
+  public panelOpened(): void {
+    this.panelOpenState = true;
+  }
+  public panelClosed(): void {
+    this.panelOpenState = false;
   }
 }
