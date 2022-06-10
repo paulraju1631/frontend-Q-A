@@ -1,0 +1,23 @@
+<div class="subheader d-flex justify-space-around">
+  <div class="form-nonanim">
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Select a Category</mat-label>
+        <mat-select
+          [(ngModel)]="selectedCategory"
+          placeholder="Select a Category"
+        >
+          <mat-option value="Angular">Angular</mat-option>
+          <mat-option value="JavaScript">JavaScript</mat-option>
+          <mat-option value="HTML">HTML</mat-option>
+          <mat-option value="CSS">CSS</mat-option>
+          <mat-option value="Ionic">Ionic</mat-option>
+          <mat-option value="React">React</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="btn-wrap">
+    <button mat-raised-button color="primary">View Questions</button>
+  </div>
+</div>

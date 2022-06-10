@@ -1,0 +1,15 @@
+<div class="card-grid">
+  <div
+    *ngFor="let cardItem of cardsList"
+    class="card"
+    (click)="cardClicked(cardItem)"
+    [ngClass]="{ flip: cardItem.isFlipped }"
+  >
+    <div class="front">
+      <div class="card-question">{{ cardItem.question }}</div>
+    </div>
+    <div class="back">
+      <div class="card-answer">{{ cardItem.answer }}</div>
+    </div>
+  </div>
+</div>
