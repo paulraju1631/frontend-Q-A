@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,6 +28,7 @@ import { SubCategoryComponent } from './components/sub-category/sub-category.com
     MatSelectModule,
     MatButtonModule,
     MatExpansionModule,
+    MatTabsModule,
   ],
   exports: [
     FormsModule,
@@ -35,6 +37,7 @@ import { SubCategoryComponent } from './components/sub-category/sub-category.com
     MatSelectModule,
     MatButtonModule,
     MatExpansionModule,
+    MatTabsModule,
     QuestionCardComponent,
     HeaderComponent,
     SubHeaderComponent,

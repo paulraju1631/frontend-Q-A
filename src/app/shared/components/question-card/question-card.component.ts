@@ -12,6 +12,7 @@ import { HTMLQuestions } from '../../constants/html';
 import { IonicQuestions } from '../../constants/ionic';
 import { JavaScriptQuestions } from '../../constants/javascript';
 import { ReactQuestions } from '../../constants/react';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-question-card',
@@ -19,17 +20,18 @@ import { ReactQuestions } from '../../constants/react';
   styleUrls: ['./question-card.component.scss'],
 })
 export class QuestionCardComponent implements OnInit, OnChanges {
-  @Input() selectedCategory = '';
-
+  // @Input() selectedCategory = '';
+  public selectedCategory = '';
   public cardsToDisplay: any[] = [];
   public panelOpenState = false;
-  constructor() {}
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.selectedCategory) {
+  constructor(private readonly common: CommonService) {}
+  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnInit(): void {
+    this.common.categoryValue.subscribe((value) => {
+      this.selectedCategory = value;
       this.filterQuestionsList();
-    }
+    });
   }
-  ngOnInit(): void {}
   public cardClicked(cardItem: any): void {
     cardItem.isFlipped = !cardItem.isFlipped;
   }

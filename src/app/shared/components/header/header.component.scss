@@ -1,15 +1,4 @@
-.fe-header {
-  display: flex;
-  height: 80px;
-  background: black;
-  padding: 0 30px;
-  .left-header {
-    width: 50%;
-  }
-  .right-header {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.header {
+  padding: 10px 0;
+  border-bottom: 1px solid black;
 }

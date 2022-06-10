@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Category, CategoryList } from '../../constants/category';
 import { CommonService } from '../../services/common.service';
 
@@ -8,16 +8,16 @@ import { CommonService } from '../../services/common.service';
   styleUrls: ['./sub-header.component.scss']
 })
 export class SubHeaderComponent implements OnInit {
-  public selectedCategory = Category[1];
-  public categoryList = CategoryList;
+  @Input() subCategoryList: string[] = [];
+  // @Input() selectedCategory = '';
+  
+  
   constructor(
     private readonly common: CommonService
   ) { }
 
   ngOnInit(): void {
-    this.common.categoryValue.next(this.selectedCategory);
+    
   }
-  public categoryChanged(event: any): void {
-    this.common.categoryValue.next(event.value);
-  }
+  
 }

@@ -1,4 +1,4 @@
-<div class="card-grid">
+<!-- <div class="card-grid">
   <div
     *ngFor="let subCategory of subCategoryList; let subCategoryIndex = index"
     class="card"
@@ -7,4 +7,13 @@
       {{ subCategory }}
     </h3>
   </div>
-</div>
+</div> -->
+
+<mat-tab-group animationDuration="1000ms">
+  <mat-tab
+    [label]="subCategory"
+    *ngFor="let subCategory of subCategoryList; let subCategoryIndex = index"
+    >
+    <app-question-card></app-question-card></mat-tab
+  >
+</mat-tab-group>

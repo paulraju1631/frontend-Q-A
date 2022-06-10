@@ -8,7 +8,10 @@ import { Category } from '../../constants/category';
 })
 export class SubCategoryComponent implements OnInit {
   @Input() subCategoryList: string[] = [];
+  // @Input() selectedCategory = '';
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 }

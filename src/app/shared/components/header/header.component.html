@@ -1,6 +1,23 @@
-<header class="fe-header">
-  <div class="left-header"></div>
-  <div class="right-header">
-    
+<div class="header d-flex justify-space-around">
+  <div class="form-nonanim">
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Select a Category</mat-label>
+        <mat-select
+          [(ngModel)]="selectedCategory"
+          placeholder="Select a Category"
+          (selectionChange)="categoryChanged($event)"
+        >
+          <mat-option
+            *ngFor="let category of categoryList"
+            [value]="category"
+            >{{ category }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
-</header>
+  <div class="btn-wrap">
+    <button mat-raised-button color="primary">View Questions</button>
+  </div>
+</div>

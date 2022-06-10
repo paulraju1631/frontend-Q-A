@@ -2,5 +2,15 @@
 @import "./scss/base/all";
 @import "./scss/common/all";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
