@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-sub-header',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubHeaderComponent implements OnInit {
   public selectedCategory = 'JavaScript';
-  constructor() { }
+  constructor(
+    private readonly common: CommonService
+  ) { }
 
   ngOnInit(): void {
+    this.common.categoryValue.next(this.selectedCategory);
   }
-
+  public categoryChanged(event: any): void {
+    this.common.categoryValue.next(event.value);
+  }
 }

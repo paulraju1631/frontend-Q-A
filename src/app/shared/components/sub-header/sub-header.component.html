@@ -5,7 +5,7 @@
         <mat-label>Select a Category</mat-label>
         <mat-select
           [(ngModel)]="selectedCategory"
-          placeholder="Select a Category"
+          placeholder="Select a Category" (selectionChange)="categoryChanged($event)"
         >
           <mat-option value="Angular">Angular</mat-option>
           <mat-option value="JavaScript">JavaScript</mat-option>
