@@ -19,6 +19,6 @@ export const AngularQuestions = [
   },
 ].map((element) => ({
   ...element,
-  isFlipped: false,
+//   isFlipped: false,
   category: Category[Category.Angular],
 }));

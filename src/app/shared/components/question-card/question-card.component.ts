@@ -10,7 +10,10 @@ import { Category } from '../../constants/category';
 import { CSSQuestions } from '../../constants/css';
 import { HTMLQuestions } from '../../constants/html';
 import { IonicQuestions } from '../../constants/ionic';
-import { JavaScriptQuestions } from '../../constants/javascript';
+import {
+  JavaScriptOutputQuestions,
+  JavaScriptQuestions,
+} from '../../constants/javascript';
 import { ReactQuestions } from '../../constants/react';
 import { CommonService } from '../../services/common.service';
 
@@ -20,7 +23,10 @@ import { CommonService } from '../../services/common.service';
   styleUrls: ['./question-card.component.scss'],
 })
 export class QuestionCardComponent implements OnInit, OnChanges {
-  // @Input() selectedCategory = '';
+  @Input() isAccordion = true;
+  @Input() isCard = false;
+  @Input() subCategory = '';
+
   public selectedCategory = '';
   public cardsToDisplay: any[] = [];
   public panelOpenState = false;
@@ -32,13 +38,17 @@ export class QuestionCardComponent implements OnInit, OnChanges {
       this.filterQuestionsList();
     });
   }
-  public cardClicked(cardItem: any): void {
-    cardItem.isFlipped = !cardItem.isFlipped;
-  }
+  // public cardClicked(cardItem: any): void {
+  //   cardItem.isFlipped = !cardItem.isFlipped;
+  // }
   public filterQuestionsList(): void {
     switch (this.selectedCategory) {
       case Category[Category.JavaScript]: {
-        this.cardsToDisplay = JavaScriptQuestions;
+        if (this.subCategory === 'JS Output Questions') {
+          this.cardsToDisplay = JavaScriptOutputQuestions;
+        } else {
+          this.cardsToDisplay = JavaScriptQuestions;
+        }
         break;
       }
       case Category[Category.Angular]: {
@@ -68,5 +78,8 @@ export class QuestionCardComponent implements OnInit, OnChanges {
   }
   public panelClosed(): void {
     this.panelOpenState = false;
+  }
+  public cardClicked(cardItem: any): void {
+    cardItem.isFlipped = !cardItem.isFlipped;
   }
 }

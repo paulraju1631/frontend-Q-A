@@ -19,6 +19,6 @@ export const CSSQuestions = [
   },
 ].map((element) => ({
   ...element,
-  isFlipped: false,
+//   isFlipped: false,
   category: Category[Category.CSS],
 }));

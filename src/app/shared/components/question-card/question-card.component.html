@@ -1,12 +1,14 @@
-<!-- <div class="card-grid">
+<div *ngIf="isCard" class="card-grid">
   <div
-    *ngFor="let cardItem of cardsToDisplay; let cardIndex = index;"
+    *ngFor="let cardItem of cardsToDisplay; let cardIndex = index"
     class="card"
     (click)="cardClicked(cardItem)"
     [ngClass]="{ flip: cardItem.isFlipped }"
   >
     <div class="front">
-      <h3 class="card-question">{{cardIndex + 1}}) {{ cardItem.question }}</h3>
+      <h3 class="card-question">
+        {{ cardIndex + 1 }}) {{ cardItem.question }}
+      </h3>
       <span>(Click to view answer)</span>
     </div>
     <div class="back">
@@ -14,8 +16,8 @@
       <p class="card-answer">{{ cardItem.answer }}</p>
     </div>
   </div>
-</div> -->
-<div class="question-panel">
+</div>
+<div *ngIf="isAccordion" class="question-panel">
   <mat-accordion>
     <mat-expansion-panel
       *ngFor="let card of cardsToDisplay; let cardIndex = index"
@@ -24,11 +26,11 @@
     >
       <mat-expansion-panel-header>
         <mat-panel-title
-          >Q{{ cardIndex + 1}}) {{ card.question }}
+          >Q{{ cardIndex + 1 }}) {{ card.question }}
         </mat-panel-title>
         <mat-panel-description> </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>{{ card.answer }}</p>
+      <p [innerHTML]="card.answer"></p>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

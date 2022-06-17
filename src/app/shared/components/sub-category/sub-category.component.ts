@@ -19,10 +19,10 @@ export class SubCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.common.categoryValue.subscribe((value) => {
       this.selectedCategory = value;
-      this.checkForSubCategory();
+      this.getSubCategory();
     });
   }
-  private checkForSubCategory(): void {
+  private getSubCategory(): void {
     if (this.selectedCategory === Category[Category.JavaScript]) {
       this.subCategoryList = [
         ...CommonSubCategory,
@@ -31,5 +31,8 @@ export class SubCategoryComponent implements OnInit {
     } else {
       this.subCategoryList = [...CommonSubCategory];
     }
+  }
+  public checkForSubCategory(subCategory: String): boolean {
+    return subCategory === 'JS Output Questions';
   }
 }

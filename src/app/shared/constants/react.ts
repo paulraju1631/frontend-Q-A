@@ -19,6 +19,6 @@ export const ReactQuestions = [
   },
 ].map((element) => ({
   ...element,
-  isFlipped: false,
+//   isFlipped: false,
   category: Category[Category.React],
 }));

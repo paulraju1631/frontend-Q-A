@@ -14,6 +14,6 @@
     [label]="subCategory"
     *ngFor="let subCategory of subCategoryList; let subCategoryIndex = index"
     >
-    <app-question-card></app-question-card></mat-tab
+    <app-question-card [isCard]="checkForSubCategory(subCategory)" [subCategory]="subCategory"></app-question-card></mat-tab
   >
 </mat-tab-group>

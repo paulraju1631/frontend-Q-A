@@ -19,6 +19,6 @@ export const IonicQuestions = [
   },
 ].map((element) => ({
   ...element,
-  isFlipped: false,
+//   isFlipped: false,
   category: Category[Category.Ionic],
 }));
