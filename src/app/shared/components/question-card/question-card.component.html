@@ -20,7 +20,7 @@
 <div *ngIf="isAccordion" class="question-panel">
   <mat-accordion>
     <mat-expansion-panel
-      *ngFor="let card of cardsToDisplay; let cardIndex = index"
+      *ngFor="let card of accordionsToDisplay; let cardIndex = index"
       (opened)="panelOpened()"
       (closed)="panelClosed()"
     >

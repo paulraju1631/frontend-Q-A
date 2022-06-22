@@ -29,6 +29,7 @@ export class QuestionCardComponent implements OnInit, OnChanges {
 
   public selectedCategory = '';
   public cardsToDisplay: any[] = [];
+  public accordionsToDisplay: any[] = [];
   public panelOpenState = false;
   constructor(private readonly common: CommonService) {}
   ngOnChanges(changes: SimpleChanges): void {}
@@ -44,34 +45,42 @@ export class QuestionCardComponent implements OnInit, OnChanges {
   public filterQuestionsList(): void {
     switch (this.selectedCategory) {
       case Category[Category.JavaScript]: {
-        if (this.subCategory === 'JS Output Questions') {
-          this.cardsToDisplay = JavaScriptOutputQuestions;
-        } else {
-          this.cardsToDisplay = JavaScriptQuestions;
-        }
+        this.cardsToDisplay = JavaScriptOutputQuestions;
+        this.accordionsToDisplay =
+          this.fetchQuestionsForSubCategory(JavaScriptQuestions);
         break;
       }
       case Category[Category.Angular]: {
-        this.cardsToDisplay = AngularQuestions;
+        this.accordionsToDisplay =
+          this.fetchQuestionsForSubCategory(AngularQuestions);
         break;
       }
       case Category[Category.HTML]: {
-        this.cardsToDisplay = HTMLQuestions;
+        this.accordionsToDisplay =
+          this.fetchQuestionsForSubCategory(HTMLQuestions);
         break;
       }
       case Category[Category.CSS]: {
-        this.cardsToDisplay = CSSQuestions;
+        this.accordionsToDisplay =
+          this.fetchQuestionsForSubCategory(CSSQuestions);
         break;
       }
       case Category[Category.Ionic]: {
-        this.cardsToDisplay = IonicQuestions;
+        this.accordionsToDisplay =
+          this.fetchQuestionsForSubCategory(IonicQuestions);
         break;
       }
       case Category[Category.React]: {
-        this.cardsToDisplay = ReactQuestions;
+        this.accordionsToDisplay =
+          this.fetchQuestionsForSubCategory(ReactQuestions);
         break;
       }
     }
+  }
+  private fetchQuestionsForSubCategory(arrayList: any[]): any[] {
+    return arrayList.filter(
+      (element: any) => element.type === this.subCategory
+    );
   }
   public panelOpened(): void {
     this.panelOpenState = true;
